@@ -6,6 +6,8 @@ import {
   XCircle,
 } from "lucide-react";
 
+import DashboardChart from "../components/DashboardChart";
+
 import { getDashboardStats } from "../services/dashboardApi";
 
 const Dashboard = () => {
@@ -95,6 +97,7 @@ const Dashboard = () => {
         })}
 
       </div>
+        <DashboardChart stats={data} />
 
     </div>
   );
