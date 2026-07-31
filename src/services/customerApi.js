@@ -21,6 +21,6 @@ export const updateCustomer = async ({ id, customer }) => {
 };
 
 export const deleteCustomer = async (id) => {
-  const { data } = await api.delete(`/customers/${id}`);
-  return data;
+  const res = await api.delete(`/customers/${id}`);
+  return res.data;
 };

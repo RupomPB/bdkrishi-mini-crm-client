@@ -28,12 +28,15 @@ const Router = () => {
         <Route index element={<Dashboard />} />
         <Route path="customers" element={<Customers />} />
         <Route path="customers/add" element={<AddCustomer />} />
-      </Route>
 
-      <Route
+    <Route
     path="customers/edit/:id"
     element={<EditCustomer />}
  />
+
+      </Route>
+
+  
 
       {/* Redirect */}
       <Route path="*" element={<Navigate to="/" replace />} />
