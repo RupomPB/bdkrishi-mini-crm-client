@@ -2,228 +2,97 @@ import { useQuery } from "@tanstack/react-query";
 import {
   Users,
   UserCheck,
-  UserX,
-  Activity,
+  Trophy,
+  XCircle,
 } from "lucide-react";
-import { getCustomers } from "../services/customerApi";
+
+import { getDashboardStats } from "../services/dashboardApi";
 
 const Dashboard = () => {
   const { data, isLoading } = useQuery({
-    queryKey: ["customers"],
-    queryFn: getCustomers,
+    queryKey: ["dashboard"],
+    queryFn: getDashboardStats,
   });
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-[70vh]">
-        <span className="loading loading-spinner loading-lg text-success"></span>
+      <div className="flex justify-center py-20">
+        <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
   }
 
-  const customers = data?.customers || [];
-
-  const totalCustomers = customers.length;
-
-  const activeCustomers = customers.filter(
-    (item) => item.status === "Active"
-  ).length;
-
-  const inactiveCustomers = customers.filter(
-    (item) => item.status === "Inactive"
-  ).length;
+  const cards = [
+    {
+      title: "Customers",
+      value: data.totalCustomers,
+      icon: Users,
+      color: "bg-blue-500",
+    },
+    {
+      title: "Leads",
+      value: data.totalLeads,
+      icon: UserCheck,
+      color: "bg-purple-500",
+    },
+    {
+      title: "Won",
+      value: data.wonLeads,
+      icon: Trophy,
+      color: "bg-green-500",
+    },
+    {
+      title: "Lost",
+      value: data.lostLeads,
+      icon: XCircle,
+      color: "bg-red-500",
+    },
+  ];
 
   return (
-    <div className="space-y-8">
+    <div>
 
-      {/* Header */}
+      <h1 className="text-3xl font-bold mb-8">
+        Dashboard
+      </h1>
 
-      <div className="rounded-3xl bg-gradient-to-r from-green-600 via-emerald-500 to-lime-500 p-8 text-white shadow-xl">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <h1 className="text-4xl font-bold">
-          Welcome Back 👋
-        </h1>
+        {cards.map((card) => {
 
-        <p className="mt-2 opacity-90">
-          Manage your customers and leads efficiently.
-        </p>
+          const Icon = card.icon;
 
-      </div>
+          return (
+            <div
+              key={card.title}
+              className="rounded-2xl shadow-lg bg-base-100 p-6"
+            >
 
-      {/* Cards */}
+              <div className="flex justify-between items-center">
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <div>
 
-        <div className="card bg-white shadow-xl">
-          <div className="card-body">
+                  <p className="text-gray-500">
+                    {card.title}
+                  </p>
 
-            <div className="flex justify-between items-center">
+                  <h2 className="text-4xl font-bold mt-2">
+                    {card.value}
+                  </h2>
 
-              <div>
+                </div>
 
-                <p className="text-gray-500">
-                  Total Customers
-                </p>
-
-                <h2 className="text-4xl font-bold text-black">
-                  {totalCustomers}
-                </h2>
-
-              </div>
-
-              <Users
-                className="text-green-600"
-                size={45}
-              />
-
-            </div>
-
-          </div>
-        </div>
-
-        <div className="card bg-white shadow-xl">
-          <div className="card-body">
-
-            <div className="flex justify-between items-center">
-
-              <div>
-
-                <p className="text-gray-500">
-                  Active
-                </p>
-
-                <h2 className="text-4xl font-bold text-green-600">
-                  {activeCustomers}
-                </h2>
+                <div
+                  className={`${card.color} p-4 rounded-xl text-white`}
+                >
+                  <Icon size={28} />
+                </div>
 
               </div>
 
-              <UserCheck
-                className="text-green-600"
-                size={45}
-              />
-
             </div>
-
-          </div>
-        </div>
-
-        <div className="card bg-white shadow-xl">
-          <div className="card-body">
-
-            <div className="flex justify-between items-center">
-
-              <div>
-
-                <p className="text-gray-500">
-                  Inactive
-                </p>
-
-                <h2 className="text-4xl font-bold text-red-500">
-                  {inactiveCustomers}
-                </h2>
-
-              </div>
-
-              <UserX
-                className="text-red-500"
-                size={45}
-              />
-
-            </div>
-
-          </div>
-        </div>
-
-        <div className="card bg-white shadow-xl">
-          <div className="card-body">
-
-            <div className="flex justify-between items-center">
-
-              <div>
-
-                <p className="text-gray-500">
-                  CRM Status
-                </p>
-
-                <h2 className="text-2xl font-bold text-blue-600">
-                  Running
-                </h2>
-
-              </div>
-
-              <Activity
-                className="text-blue-600"
-                size={45}
-              />
-
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-      {/* Recent Customers */}
-
-      <div className="bg-white rounded-3xl shadow-xl p-6">
-
-        <h2 className="text-2xl font-bold mb-5 text-black">
-          Recent Customers
-        </h2>
-
-        <div className="overflow-x-auto">
-
-          <table className="table">
-
-            <thead>
-
-              <tr className="text-black">
-
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Status</th>
-
-              </tr>
-
-            </thead>
-
-            <tbody>
-
-              {customers.slice(0, 5).map((customer) => (
-
-                <tr className="text-black" key={customer._id}>
-
-                  <td>{customer.name}</td>
-
-                  <td>{customer.email}</td>
-
-                  <td>{customer.phone}</td>
-
-                  <td>
-
-                    <span
-                      className={`badge ${
-                        customer.status === "Active"
-                          ? "badge-success"
-                          : "badge-error"
-                      }`}
-                    >
-                      {customer.status}
-                    </span>
-
-                  </td>
-
-                </tr>
-
-              ))}
-
-            </tbody>
-
-          </table>
-
-        </div>
+          );
+        })}
 
       </div>
 
