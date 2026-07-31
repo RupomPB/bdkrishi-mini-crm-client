@@ -9,12 +9,15 @@ import EditCustomer from "../pages/EditCustomer";
 
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./ProtectedRoute";
+import Register from "../pages/Register";
 
 const Router = () => {
   return (
     <Routes>
       {/* Public */}
       <Route path="/" element={<Login />} />
+      
+<Route path="/register" element={<Register />} />
 
       {/* Protected */}
       <Route
@@ -33,6 +36,9 @@ const Router = () => {
     path="customers/edit/:id"
     element={<EditCustomer />}
  />
+
+
+
 
       </Route>
 

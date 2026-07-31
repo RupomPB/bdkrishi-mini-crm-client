@@ -1,52 +1,59 @@
-import { Bell, Search, Moon, UserCircle } from "lucide-react";
+import { LogOut, UserCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    toast.success("Logged out successfully");
+
+    navigate("/");
+  };
+
   return (
-    <header className="bg-white shadow-md px-8 py-5 flex justify-between items-center rounded-b-3xl">
+    <div className="navbar bg-base-100 shadow-md px-8">
 
-      <div>
-
-        <h1 className="text-3xl font-bold text-slate-800">
-          Dashboard
-        </h1>
-
-        <p className="text-gray-500">
-          Welcome back 👋
-        </p>
-
+      <div className="flex-1">
+        <h2 className="text-2xl font-bold">
+          🌱 BDKrishi CRM
+        </h2>
       </div>
 
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-4">
 
-        <div className="relative">
+        <div className="flex items-center gap-2">
 
-          <Search
-            className="absolute left-3 top-3 text-gray-400"
-            size={18}
-          />
+          <UserCircle2 size={36} />
 
-          <input
-            type="text"
-            placeholder="Search..."
-            className="pl-10 input input-bordered rounded-xl"
-          />
+          <div>
+            <h3 className="font-semibold">
+              {user?.name}
+            </h3>
+
+            <p className="text-xs opacity-70">
+              {user?.role}
+            </p>
+          </div>
 
         </div>
 
-        <button className="btn btn-circle btn-ghost">
-          <Bell />
-        </button>
-
-        <button className="btn btn-circle btn-ghost">
-          <Moon />
-        </button>
-
-        <button className="btn btn-circle btn-success text-white">
-          <UserCircle />
+        <button
+          onClick={handleLogout}
+          className="btn btn-error btn-sm"
+        >
+          <LogOut size={16} />
+          Logout
         </button>
 
       </div>
-    </header>
+
+    </div>
   );
 };
 
