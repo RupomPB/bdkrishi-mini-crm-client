@@ -29,11 +29,11 @@ const DashboardChart = ({ stats }) => {
   ];
 
   return (
-    <div className="bg-base-100 rounded-2xl shadow-xl p-6 mt-8">
+    <div className="mt-8 bg-white rounded-3xl border border-slate-200 shadow-sm p-8">
 
-      <h2 className="text-xl font-bold mb-6">
-        CRM Overview
-      </h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-6">
+  CRM Analytics
+</h2>
 
       <div className="h-80">
 

@@ -1,83 +1,130 @@
 import {
   LayoutDashboard,
   Users,
-  UserPlus,
-  ClipboardList,
+  Target,
   Settings,
   LogOut,
+  Leaf,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
+  const menu = [
+    {
+      name: "Dashboard",
+      path: "/dashboard",
+      icon: LayoutDashboard,
+    },
+    {
+      name: "Customers",
+      path: "/dashboard/customers",
+      icon: Users,
+    },
+    {
+      name: "Leads",
+      path: "/dashboard/leads",
+      icon: Target,
+    },
+    {
+      name: "Settings",
+      path: "#",
+      icon: Settings,
+    },
+  ];
+
   return (
-    <aside className="w-72 min-h-screen bg-slate-900 text-white shadow-2xl">
+    <div className="h-screen bg-slate-900 text-white flex flex-col shadow-2xl">
 
-      <div className="p-8 border-b border-slate-700">
+      {/* Logo */}
 
-        <h1 className="text-3xl font-extrabold text-green-400">
-          BDKrishi
-        </h1>
+      <div className="px-8 py-8 border-b border-slate-800">
 
-        <p className="text-sm text-slate-400 mt-1">
-          Mini CRM
-        </p>
+        <div className="flex items-center gap-3">
+
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center shadow-lg">
+
+            <Leaf size={24} />
+
+          </div>
+
+          <div>
+
+            <h1 className="text-2xl font-black tracking-wide">
+              BDKrishi
+            </h1>
+
+            <p className="text-slate-400 text-sm">
+              Mini CRM
+            </p>
+
+          </div>
+
+        </div>
 
       </div>
 
-      <nav className="p-5 space-y-3">
+      {/* Menu */}
 
-        <NavLink
-          to="/dashboard"
-          end
-          className="flex items-center gap-3 p-3 rounded-xl hover:bg-green-500 duration-300"
-        >
-          <LayoutDashboard size={20} />
-          Dashboard
-        </NavLink>
+      <div className="flex-1 px-5 py-8 space-y-3">
 
-        <NavLink
-          to="/dashboard/customers"
-          className="flex items-center gap-3 p-3 rounded-xl hover:bg-green-500 duration-300"
-        >
-          <Users size={20} />
-          Customers
-        </NavLink>
+        {menu.map((item) => {
+          const Icon = item.icon;
 
-        <NavLink
-          to="/dashboard/customers/add"
-          className="flex items-center gap-3 p-3 rounded-xl hover:bg-green-500 duration-300"
-        >
-          <UserPlus size={20} />
-          Add Customer
-        </NavLink>
+          return (
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) =>
+                `flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold transition-all duration-300 ${
+                  isActive
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg"
+                    : "hover:bg-slate-800 text-slate-300"
+                }`
+              }
+            >
+              <Icon size={22} />
 
-        <button
-          className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-700 duration-300"
-        >
-          <ClipboardList size={20} />
-          Leads
-        </button>
+              {item.name}
+            </NavLink>
+          );
+        })}
+      </div>
 
-        <button
-          className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-700 duration-300"
-        >
-          <Settings size={20} />
-          Settings
-        </button>
+      {/* Bottom */}
 
-      </nav>
+      <div className="p-6 border-t border-slate-800">
 
-      <div className="absolute bottom-8 left-5">
+        <div className="bg-slate-800 rounded-2xl p-4 mb-4">
+
+          <h3 className="font-bold text-lg">
+            Admin
+          </h3>
+
+          <p className="text-slate-400 text-sm">
+            CRM Administrator
+          </p>
+
+        </div>
 
         <button
-          className="flex items-center gap-3 bg-red-500 hover:bg-red-600 px-5 py-3 rounded-xl duration-300"
+          onClick={handleLogout}
+          className="w-full flex items-center justify-center gap-3 bg-red-500 hover:bg-red-600 transition rounded-2xl py-4 font-semibold"
         >
           <LogOut size={20} />
+
           Logout
         </button>
 
       </div>
-    </aside>
+
+    </div>
   );
 };
 
