@@ -11,6 +11,8 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from "../pages/Register";
 import Leads from "../pages/Leads";
+import AddLead from "../pages/AddLead";
+// import EditLead from "../pages/EditLead";
 
 const Router = () => {
   return (
@@ -38,6 +40,10 @@ const Router = () => {
     element={<EditCustomer />}
  />
  <Route path="leads" element={<Leads />} />
+
+ <Route path="leads/add" element={<AddLead />} />
+
+{/* <Route path="leads/edit/:id" element={<EditLead />} /> */}
 
 
 
