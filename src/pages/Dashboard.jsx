@@ -1,145 +1,176 @@
-import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
 import {
   Users,
-  UserPlus,
-  ClipboardList,
-  TrendingUp,
-  ArrowUpRight,
+  UserCheck,
+  UserX,
+  Activity,
 } from "lucide-react";
-
-const cards = [
-  {
-    title: "Customers",
-    value: "124",
-    icon: Users,
-    color: "bg-green-500",
-  },
-  {
-    title: "Leads",
-    value: "58",
-    icon: UserPlus,
-    color: "bg-blue-500",
-  },
-  {
-    title: "Tasks",
-    value: "19",
-    icon: ClipboardList,
-    color: "bg-orange-500",
-  },
-  {
-    title: "Growth",
-    value: "92%",
-    icon: TrendingUp,
-    color: "bg-purple-500",
-  },
-];
-
-const recentCustomers = [
-  {
-    name: "John Doe",
-    company: "ABC Ltd",
-    status: "Active",
-  },
-  {
-    name: "Sarah Khan",
-    company: "TechNova",
-    status: "Active",
-  },
-  {
-    name: "David Smith",
-    company: "Soft IT",
-    status: "Inactive",
-  },
-  {
-    name: "Alex Roy",
-    company: "BDKrishi",
-    status: "Active",
-  },
-];
+import { getCustomers } from "../services/customerApi";
 
 const Dashboard = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["customers"],
+    queryFn: getCustomers,
+  });
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-[70vh]">
+        <span className="loading loading-spinner loading-lg text-success"></span>
+      </div>
+    );
+  }
+
+  const customers = data?.customers || [];
+
+  const totalCustomers = customers.length;
+
+  const activeCustomers = customers.filter(
+    (item) => item.status === "Active"
+  ).length;
+
+  const inactiveCustomers = customers.filter(
+    (item) => item.status === "Inactive"
+  ).length;
+
   return (
     <div className="space-y-8">
 
-      {/* Hero */}
+      {/* Header */}
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="rounded-3xl bg-gradient-to-r from-green-600 via-green-500 to-emerald-500 p-10 text-white shadow-xl"
-      >
+      <div className="rounded-3xl bg-gradient-to-r from-green-600 via-emerald-500 to-lime-500 p-8 text-white shadow-xl">
+
         <h1 className="text-4xl font-bold">
           Welcome Back 👋
         </h1>
 
-        <p className="mt-3 text-green-100 text-lg">
-          Manage your customers, leads and CRM activities from one dashboard.
+        <p className="mt-2 opacity-90">
+          Manage your customers and leads efficiently.
         </p>
 
-        <button className="btn mt-8 bg-white text-green-600 border-none rounded-xl hover:bg-green-50">
-          Explore Dashboard
-          <ArrowUpRight size={18} />
-        </button>
-      </motion.div>
+      </div>
 
       {/* Cards */}
 
-      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
 
-        {cards.map((card, index) => {
+        <div className="card bg-white shadow-xl">
+          <div className="card-body">
 
-          const Icon = card.icon;
+            <div className="flex justify-between items-center">
 
-          return (
-            <motion.div
-              whileHover={{ scale: 1.04 }}
-              key={index}
-              className="bg-white rounded-3xl shadow-lg p-6"
-            >
+              <div>
 
-              <div className="flex justify-between items-center">
+                <p className="text-gray-500">
+                  Total Customers
+                </p>
 
-                <div>
-
-                  <p className="text-gray-500">
-                    {card.title}
-                  </p>
-
-                  <h2 className="text-4xl font-bold mt-2">
-                    {card.value}
-                  </h2>
-
-                </div>
-
-                <div
-                  className={`${card.color} w-16 h-16 rounded-2xl flex items-center justify-center text-white`}
-                >
-                  <Icon size={30} />
-                </div>
+                <h2 className="text-4xl font-bold text-black">
+                  {totalCustomers}
+                </h2>
 
               </div>
 
-            </motion.div>
-          );
-        })}
+              <Users
+                className="text-green-600"
+                size={45}
+              />
+
+            </div>
+
+          </div>
+        </div>
+
+        <div className="card bg-white shadow-xl">
+          <div className="card-body">
+
+            <div className="flex justify-between items-center">
+
+              <div>
+
+                <p className="text-gray-500">
+                  Active
+                </p>
+
+                <h2 className="text-4xl font-bold text-green-600">
+                  {activeCustomers}
+                </h2>
+
+              </div>
+
+              <UserCheck
+                className="text-green-600"
+                size={45}
+              />
+
+            </div>
+
+          </div>
+        </div>
+
+        <div className="card bg-white shadow-xl">
+          <div className="card-body">
+
+            <div className="flex justify-between items-center">
+
+              <div>
+
+                <p className="text-gray-500">
+                  Inactive
+                </p>
+
+                <h2 className="text-4xl font-bold text-red-500">
+                  {inactiveCustomers}
+                </h2>
+
+              </div>
+
+              <UserX
+                className="text-red-500"
+                size={45}
+              />
+
+            </div>
+
+          </div>
+        </div>
+
+        <div className="card bg-white shadow-xl">
+          <div className="card-body">
+
+            <div className="flex justify-between items-center">
+
+              <div>
+
+                <p className="text-gray-500">
+                  CRM Status
+                </p>
+
+                <h2 className="text-2xl font-bold text-blue-600">
+                  Running
+                </h2>
+
+              </div>
+
+              <Activity
+                className="text-blue-600"
+                size={45}
+              />
+
+            </div>
+
+          </div>
+        </div>
 
       </div>
 
       {/* Recent Customers */}
 
-      <div className="bg-white rounded-3xl shadow-lg p-8">
+      <div className="bg-white rounded-3xl shadow-xl p-6">
 
-        <div className="flex justify-between mb-6">
-
-          <h2 className="text-2xl font-bold">
-            Recent Customers
-          </h2>
-
-          <button className="btn btn-success rounded-xl">
-            View All
-          </button>
-
-        </div>
+        <h2 className="text-2xl font-bold mb-5 text-black">
+          Recent Customers
+        </h2>
 
         <div className="overflow-x-auto">
 
@@ -147,12 +178,11 @@ const Dashboard = () => {
 
             <thead>
 
-              <tr>
+              <tr className="text-black">
 
                 <th>Name</th>
-
-                <th>Company</th>
-
+                <th>Email</th>
+                <th>Phone</th>
                 <th>Status</th>
 
               </tr>
@@ -161,17 +191,15 @@ const Dashboard = () => {
 
             <tbody>
 
-              {recentCustomers.map((customer, index) => (
+              {customers.slice(0, 5).map((customer) => (
 
-                <tr key={index}>
+                <tr className="text-black" key={customer._id}>
 
-                  <td className="font-semibold">
-                    {customer.name}
-                  </td>
+                  <td>{customer.name}</td>
 
-                  <td>
-                    {customer.company}
-                  </td>
+                  <td>{customer.email}</td>
+
+                  <td>{customer.phone}</td>
 
                   <td>
 
