@@ -10,6 +10,7 @@ import EditCustomer from "../pages/EditCustomer";
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from "../pages/Register";
+import Leads from "../pages/Leads";
 
 const Router = () => {
   return (
@@ -36,6 +37,7 @@ const Router = () => {
     path="customers/edit/:id"
     element={<EditCustomer />}
  />
+ <Route path="leads" element={<Leads />} />
 
 
 
