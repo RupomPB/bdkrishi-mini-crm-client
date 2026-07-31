@@ -12,7 +12,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Register from "../pages/Register";
 import Leads from "../pages/Leads";
 import AddLead from "../pages/AddLead";
-// import EditLead from "../pages/EditLead";
+import EditLead from "../pages/EditLead";
 
 const Router = () => {
   return (
@@ -43,7 +43,7 @@ const Router = () => {
 
  <Route path="leads/add" element={<AddLead />} />
 
-{/* <Route path="leads/edit/:id" element={<EditLead />} /> */}
+<Route path="leads/edit/:id" element={<EditLead />} />
 
 
 
