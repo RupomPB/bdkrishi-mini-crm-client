@@ -5,6 +5,8 @@ import Dashboard from "../pages/Dashboard";
 import Customers from "../pages/Customers";
 import AddCustomer from "../pages/AddCustomer";
 
+import EditCustomer from "../pages/EditCustomer";
+
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -27,6 +29,11 @@ const Router = () => {
         <Route path="customers" element={<Customers />} />
         <Route path="customers/add" element={<AddCustomer />} />
       </Route>
+
+      <Route
+    path="customers/edit/:id"
+    element={<EditCustomer />}
+ />
 
       {/* Redirect */}
       <Route path="*" element={<Navigate to="/" replace />} />
