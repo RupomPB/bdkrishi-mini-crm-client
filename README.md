@@ -23,19 +23,19 @@ https://github.com/RupomPB/bdkrishi-mini-crm-server
 
 ## Home
 
-![Home](./screenshots/home.png)
+https://i.ibb.co.com/0VtVwh89/image.png
 
 ## Dashboard
 
-![Dashboard](./screenshots/dashboard.png)
+https://i.ibb.co.com/QFYqXDYq/image.png
 
 ## Customers
 
-![Customers](./screenshots/customers.png)
+https://i.ibb.co.com/xKrCVSDX/image.png
 
 ## Leads
 
-![Leads](./screenshots/leads.png)
+https://i.ibb.co.com/LdCMBmNj/image.png
 
 ---
 
