@@ -8,19 +8,18 @@ A modern **Mini CRM (Customer Relationship Management)** web application built w
 
 ### 🌐 Client
 ```bash
-https://your-client-url.vercel.app
+https://github.com/RupomPB/bdkrishi-mini-crm-client
 ```
 
 ### 🌐 Server
 ```bash
-https://your-server-url.vercel.app
+https://github.com/RupomPB/bdkrishi-mini-crm-server
 ```
 
 ---
 
 # 📸 Screenshots
 
-> Add screenshots after deployment.
 
 ## Home
 
@@ -162,8 +161,8 @@ server/
 ## Clone Repository
 
 ```bash
-git clone https://github.com/your-username/bdkrishi-mini-crm.git
-```
+https://github.com/RupomPB/bdkrishi-mini-crm-client.git
+````
 
 ---
 
