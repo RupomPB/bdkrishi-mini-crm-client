@@ -1,16 +1,281 @@
-# React + Vite
+# 🌱 BDKrishi Mini CRM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Mini CRM (Customer Relationship Management)** web application built with the **MERN Stack** to manage customers and sales leads efficiently. The system provides secure authentication, customer management, lead tracking, analytics dashboard, and a clean responsive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
 
-## React Compiler
+### 🌐 Client
+```bash
+https://your-client-url.vercel.app
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🌐 Server
+```bash
+https://your-server-url.vercel.app
+```
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 📸 Screenshots
+
+> Add screenshots after deployment.
+
+## Home
+
+![Home](./screenshots/home.png)
+
+## Dashboard
+
+![Dashboard](./screenshots/dashboard.png)
+
+## Customers
+
+![Customers](./screenshots/customers.png)
+
+## Leads
+
+![Leads](./screenshots/leads.png)
+
+---
+
+# ✨ Features
+
+## 🔐 Authentication
+
+- User Registration
+- User Login
+- JWT Authentication
+- Protected Routes
+- Logout
+- Password Hidden/Show
+
+---
+
+## 📊 Dashboard
+
+- Dashboard Statistics
+- Customer Count
+- Lead Count
+- Won Leads
+- Lost Leads
+- Analytics Chart
+- Recent Customers
+- Recent Leads
+
+---
+
+## 👥 Customer Management
+
+- Add Customer
+- Update Customer
+- Delete Customer
+- Customer List
+- Status Management
+
+---
+
+## 🎯 Lead Management
+
+- Add Lead
+- Edit Lead
+- Delete Lead
+- Lead Status
+- Lead Priority
+- Customer Assignment
+
+---
+
+## 🎨 UI Features
+
+- Responsive Design
+- Premium Dashboard
+- Beautiful Cards
+- Toast Notifications
+- Modern Forms
+- Loading Spinner
+- Clean Layout
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React.js
+- React Router DOM
+- Tailwind CSS
+- DaisyUI
+- TanStack React Query
+- Axios
+- React Hook Form
+- React Hot Toast
+- Lucide React
+- Recharts
+
+---
+
+## Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcryptjs
+- dotenv
+- cors
+
+---
+
+# 📂 Folder Structure
+
+```
+client/
+│
+├── src/
+│   ├── components/
+│   ├── layouts/
+│   ├── pages/
+│   ├── routes/
+│   ├── services/
+│   └── App.jsx
+│
+└── package.json
+
+server/
+│
+├── controllers/
+├── middleware/
+├── models/
+├── routes/
+├── config/
+├── index.js
+└── package.json
+```
+
+---
+
+# ⚙️ Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/your-username/bdkrishi-mini-crm.git
+```
+
+---
+
+## Install Client
+
+```bash
+cd client
+
+npm install
+
+npm run dev
+```
+
+---
+
+## Install Server
+
+```bash
+cd server
+
+npm install
+
+npm run dev
+```
+
+---
+
+# 🔑 Environment Variables
+
+Create a `.env` file inside the server folder.
+
+```env
+PORT=5000
+
+MONGO_URI=YOUR_MONGODB_URI
+
+JWT_SECRET=YOUR_SECRET_KEY
+```
+
+---
+
+# 📦 API Endpoints
+
+## Authentication
+
+```
+POST /api/auth/register
+
+POST /api/auth/login
+```
+
+---
+
+## Customers
+
+```
+GET /api/customers
+
+POST /api/customers
+
+PUT /api/customers/:id
+
+DELETE /api/customers/:id
+```
+
+---
+
+## Leads
+
+```
+GET /api/leads
+
+POST /api/leads
+
+PUT /api/leads/:id
+
+DELETE /api/leads/:id
+```
+
+---
+
+# 📈 Future Improvements
+
+- Customer Search
+- Customer Filter
+- Pagination
+- Lead Search
+- Lead Filter
+- Dark Mode
+- Notification System
+- Export CSV
+- Role Based Dashboard
+
+---
+
+# 👨‍💻 Author
+
+### Rupom Prosad Badhan
+
+Frontend Developer
+
+GitHub:
+https://github.com/RupomPB
+
+LinkedIn:
+https://www.linkedin.com/in/rupom-pb/
+
+Portfolio:
+https://portfolio-gamma-seven-dsp20g2nki.vercel.app
+
+---
+
+# ⭐ If you like this project
+
+Give this repository a ⭐ on GitHub.
