@@ -1,41 +1,52 @@
 # 🌱 BDKrishi Mini CRM
 
-A modern **Mini CRM (Customer Relationship Management)** web application built with the **MERN Stack** to manage customers and sales leads efficiently. The system provides secure authentication, customer management, lead tracking, analytics dashboard, and a clean responsive UI.
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-22-339933?logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-Backend-000000?logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Authentication-black?logo=jsonwebtokens)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38BDF8?logo=tailwindcss&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue)
+
+A modern **Mini CRM (Customer Relationship Management)** web application built with the **MERN Stack**. This project helps businesses efficiently manage customers, sales leads, and CRM activities through a clean, responsive, and secure dashboard.
 
 ---
 
-## 🚀 Live Demo
+# 📂 Repository
 
-### 🌐 Client
-```bash
+## 💻 Client Repository
+
 https://github.com/RupomPB/bdkrishi-mini-crm-client
-```
 
-### 🌐 Server
-```bash
+## ⚙️ Server Repository
+
 https://github.com/RupomPB/bdkrishi-mini-crm-server
-```
 
 ---
 
 # 📸 Screenshots
 
+## 🏠 Login
 
-## Home
+![Login](https://i.ibb.co.com/0VtVwh89/image.png)
 
-https://i.ibb.co.com/0VtVwh89/image.png
+---
 
-## Dashboard
+## 📊 Dashboard
 
-https://i.ibb.co.com/QFYqXDYq/image.png
+![Dashboard](https://i.ibb.co.com/QFYqXDYq/image.png)
 
-## Customers
+---
 
-https://i.ibb.co.com/xKrCVSDX/image.png
+## 👥 Customers
 
-## Leads
+![Customers](https://i.ibb.co.com/xKrCVSDX/image.png)
 
-https://i.ibb.co.com/LdCMBmNj/image.png
+---
+
+## 🎯 Leads
+
+![Leads](https://i.ibb.co.com/LdCMBmNj/image.png)
 
 ---
 
@@ -43,133 +54,119 @@ https://i.ibb.co.com/LdCMBmNj/image.png
 
 ## 🔐 Authentication
 
-- User Registration
-- User Login
-- JWT Authentication
-- Protected Routes
-- Logout
-- Password Hidden/Show
+- ✅ User Registration
+- ✅ User Login
+- ✅ JWT Authentication
+- ✅ Protected Routes
+- ✅ Logout
+- ✅ Password Show / Hide
 
 ---
 
 ## 📊 Dashboard
 
-- Dashboard Statistics
-- Customer Count
-- Lead Count
-- Won Leads
-- Lost Leads
-- Analytics Chart
-- Recent Customers
-- Recent Leads
+- ✅ CRM Statistics
+- ✅ Customer Count
+- ✅ Lead Count
+- ✅ Won Leads
+- ✅ Lost Leads
+- ✅ Analytics Chart
+- ✅ Recent Customers
+- ✅ Recent Leads
 
 ---
 
 ## 👥 Customer Management
 
-- Add Customer
-- Update Customer
-- Delete Customer
-- Customer List
-- Status Management
+- ✅ Add Customer
+- ✅ Edit Customer
+- ✅ Delete Customer
+- ✅ Customer List
+- ✅ Customer Status
 
 ---
 
 ## 🎯 Lead Management
 
-- Add Lead
-- Edit Lead
-- Delete Lead
-- Lead Status
-- Lead Priority
-- Customer Assignment
+- ✅ Add Lead
+- ✅ Edit Lead
+- ✅ Delete Lead
+- ✅ Lead Status
+- ✅ Lead Priority
+- ✅ Customer Assignment
 
 ---
 
-## 🎨 UI Features
+## 🎨 User Interface
 
-- Responsive Design
-- Premium Dashboard
-- Beautiful Cards
-- Toast Notifications
-- Modern Forms
-- Loading Spinner
-- Clean Layout
+- ✅ Premium Dashboard
+- ✅ Responsive Layout
+- ✅ Modern Login Page
+- ✅ Modern Register Page
+- ✅ Toast Notifications
+- ✅ Beautiful Cards
+- ✅ Clean UI
+- ✅ Loading State
 
 ---
 
 # 🛠 Tech Stack
 
-## Frontend
-
-- React.js
-- React Router DOM
-- Tailwind CSS
-- DaisyUI
-- TanStack React Query
-- Axios
-- React Hook Form
-- React Hot Toast
-- Lucide React
-- Recharts
-
----
-
-## Backend
-
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JWT
-- bcryptjs
-- dotenv
-- cors
+| Frontend | Backend | Database |
+|-----------|----------|-----------|
+| React.js | Node.js | MongoDB |
+| React Router | Express.js | Mongoose |
+| Tailwind CSS | JWT | |
+| DaisyUI | bcryptjs | |
+| React Query | dotenv | |
+| Axios | cors | |
+| React Hook Form | | |
+| React Hot Toast | | |
+| Lucide React | | |
+| Recharts | | |
 
 ---
 
-# 📂 Folder Structure
+# 📁 Project Structure
 
-```
-client/
+```bash
+BDKrishi-Mini-CRM
 │
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
-│   ├── routes/
-│   ├── services/
-│   └── App.jsx
+├── client
+│   ├── public
+│   ├── src
+│   │   ├── assets
+│   │   ├── components
+│   │   ├── layouts
+│   │   ├── pages
+│   │   ├── routes
+│   │   ├── services
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── package.json
 │
-└── package.json
-
-server/
+├── server
+│   ├── config
+│   ├── controllers
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   ├── index.js
+│   └── package.json
 │
-├── controllers/
-├── middleware/
-├── models/
-├── routes/
-├── config/
-├── index.js
-└── package.json
+└── README.md
 ```
 
 ---
 
 # ⚙️ Installation
 
-## Clone Repository
+## Clone Client
 
 ```bash
-https://github.com/RupomPB/bdkrishi-mini-crm-client.git
-````
+git clone https://github.com/RupomPB/bdkrishi-mini-crm-client.git
 
----
-
-## Install Client
-
-```bash
-cd client
+cd bdkrishi-mini-crm-client
 
 npm install
 
@@ -178,10 +175,12 @@ npm run dev
 
 ---
 
-## Install Server
+## Clone Server
 
 ```bash
-cd server
+git clone https://github.com/RupomPB/bdkrishi-mini-crm-server.git
+
+cd bdkrishi-mini-crm-server
 
 npm install
 
@@ -197,7 +196,7 @@ Create a `.env` file inside the server folder.
 ```env
 PORT=5000
 
-MONGO_URI=YOUR_MONGODB_URI
+MONGO_URI=YOUR_MONGODB_CONNECTION_STRING
 
 JWT_SECRET=YOUR_SECRET_KEY
 ```
@@ -208,7 +207,7 @@ JWT_SECRET=YOUR_SECRET_KEY
 
 ## Authentication
 
-```
+```http
 POST /api/auth/register
 
 POST /api/auth/login
@@ -218,12 +217,12 @@ POST /api/auth/login
 
 ## Customers
 
-```
-GET /api/customers
+```http
+GET    /api/customers
 
-POST /api/customers
+POST   /api/customers
 
-PUT /api/customers/:id
+PUT    /api/customers/:id
 
 DELETE /api/customers/:id
 ```
@@ -232,49 +231,66 @@ DELETE /api/customers/:id
 
 ## Leads
 
-```
-GET /api/leads
+```http
+GET    /api/leads
 
-POST /api/leads
+POST   /api/leads
 
-PUT /api/leads/:id
+PUT    /api/leads/:id
 
 DELETE /api/leads/:id
 ```
 
 ---
 
-# 📈 Future Improvements
+# 🚀 Upcoming Features
 
-- Customer Search
-- Customer Filter
-- Pagination
-- Lead Search
-- Lead Filter
-- Dark Mode
-- Notification System
-- Export CSV
-- Role Based Dashboard
+- 🔍 Customer Search
+- 🎯 Customer Filter
+- 📄 Pagination
+- 🔍 Lead Search
+- 🎯 Lead Filter
+- 📊 Advanced Dashboard Analytics
+- 🌙 Dark Mode
+- 🔔 Notification Panel
+- 📁 Export CSV
+- 👥 Role-Based Dashboard
+- 📱 Improved Mobile Experience
 
 ---
 
 # 👨‍💻 Author
 
-### Rupom Prosad Badhan
+## Rupom Prosad Badhan
 
-Frontend Developer
+**Frontend / MERN Stack Developer**
 
-GitHub:
+### GitHub
+
 https://github.com/RupomPB
 
-LinkedIn:
+### LinkedIn
+
 https://www.linkedin.com/in/rupom-pb/
 
-Portfolio:
+### Portfolio
+
 https://portfolio-gamma-seven-dsp20g2nki.vercel.app
 
 ---
 
-# ⭐ If you like this project
+# ⭐ Support
 
-Give this repository a ⭐ on GitHub.
+If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
+
+It helps support the project and encourages future improvements.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+### Built with ❤️ by Rupom Prosad Badhan
